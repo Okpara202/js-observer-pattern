@@ -47,6 +47,7 @@ This repository contains an implentation of javascript observer pattern using a 
 - Attributes:
 
   - name : the observers name
+  - action : How/ what text do we display when notifying the observer
 
 - Methods:
   - notify : informs the observer whenever a registered number is dialled
@@ -79,8 +80,8 @@ const andrew = new PhoneUser("Andrew", 234567890);
 3. Create instance of observers
 
 ```bash
-const fbi = new Observer("Fbi");
-const interpol = new Observer("Interpol");
+const fbi = new Observer("Fbi", "");
+const interpol = new Observer("Interpol", "Now Dialing");
 const hacker = new Observer("Hacker");
 ```
 

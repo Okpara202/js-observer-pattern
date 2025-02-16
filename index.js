@@ -45,7 +45,6 @@ class Telephone {
   dialPhoneNumber(user) {
     // Dial user / notify the user when dialing
     if (this.customer.includes(user)) {
-      console.log(`Dialing ${user.phoneNumber} - ${user.name}'s number`);
       this.notifyObservers(user);
     } else {
       console.log(
@@ -71,12 +70,13 @@ class PhoneUser {
 
 // Create the blueprint of the Observer class
 class Observer {
-  constructor(name) {
+  constructor(name, action) {
     this.name = name;
+    this.action = action;
   }
 
   notify(user) {
-    console.log(`Now Dialling ${user.phoneNumber} - observer ${this.name}`);
+    console.log(`${this.action} ${user.phoneNumber}- observer ${this.name}`);
   }
 }
 
@@ -90,8 +90,8 @@ const chioma = new PhoneUser("Chioma", 23492992049);
 const andrew = new PhoneUser("Andrew", 23448204994);
 
 // creating instance of observers
-const fbi = new Observer("Fbi");
-const interpol = new Observer("Interpol");
+const fbi = new Observer("Fbi", "");
+const interpol = new Observer("Interpol", "Now Dialing");
 const hacker = new Observer("Hacker");
 
 // Register phone users to the telephone company
