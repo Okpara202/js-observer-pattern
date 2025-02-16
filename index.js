@@ -14,14 +14,17 @@ class Telephone {
   }
 
   removePhoneNumber(user) {
-    // Remove Customer
-    if (this.customer.includes(user)) {
-      this.customer = this.customer.filter((name) => name !== user);
+    // Remove customer
+    const index = this.customer.findIndex(
+      (customer) => customer.phoneNumber === user.phoneNumber
+    );
+    if (index !== -1) {
+      this.customer.splice(index, 1);
       console.log(
         `Blocked/Removed customer ${user.name} with phone number ${user.phoneNumber}`
       );
     } else {
-      console.log(`Invalid user`);
+      console.log(`Invalid user: ${user.phoneNumber} not found`);
     }
   }
 
@@ -31,20 +34,24 @@ class Telephone {
   }
 
   removeObserver(observer) {
-    // Remove observers
-    if (this.observers.includes(observer)) {
-      this.observers = this.observers.filter((name) => name !== observer);
+    // Remove observer
+    const index = this.observers.findIndex((obs) => obs.name === observer.name);
+    if (index !== -1) {
+      this.observers.splice(index, 1);
       console.log(
         `${observer.name} has been removed/blocked from observer status`
       );
     } else {
-      console.log(`Invalid observer`);
+      console.log(`Invalid observer: ${observer.name} not found`);
     }
   }
 
   dialPhoneNumber(user) {
     // Dial user / notify the user when dialing
-    if (this.customer.includes(user)) {
+    const foundUser = this.customer.find(
+      (customer) => customer.phoneNumber === user.phoneNumber
+    );
+    if (foundUser) {
       this.notifyObservers(user);
     } else {
       console.log(
@@ -70,7 +77,7 @@ class PhoneUser {
 
 // Create the blueprint of the Observer class
 class Observer {
-  constructor(name, action) {
+  constructor(name, action = "monitoring") {
     this.name = name;
     this.action = action;
   }

@@ -21,36 +21,37 @@ This repository contains an implentation of javascript observer pattern using a 
 
 **Classes and Their Functionality**
 
-1. **Telephone**
+1. **Telephone class**: This class represents the telephone company, which is the subject.
 
-- Attributes:
+- Properties:
 
-  - customer : An array that contains all the phone numbers and names of users registered to the telephone company
-  - observer : An array that contains all the observers attached to the telephone company
-
-- Methods :
-  - addPhoneNumber : Adds/registers a user to the telephone company
-  - removePhoneNumber : Removes/ blocks a user from the telephone company using their unique name.
-  - addObserver : Adds an observer to the telephone company
-  - removeObserver : Removes/ blocks an observer from the telephone company using their unique name.
-  - dialPhoneNumber: make calls
-  - notifyObservers : informs observers when ever a number is dialled
-
-2. **phoneUser**
-
-- Attributes:
-  - name : the customer/users name
-  - phoneNumber : the customer/users phone number
-
-3. **Observer**
-
-- Attributes:
-
-  - name : the observers name
-  - action : How/ what text do we display when notifying the observer
+  - customer: an array to store registered customers.
+  - observers: an array to store observers.
 
 - Methods:
-  - notify : informs the observer whenever a registered number is dialled
+
+  - addPhoneNumber(user): Registers a customer by adding them to the customer array.
+  - removePhoneNumber(user): Removes a customer from the customer array.
+  - addObserver(observer): Registers an observer by adding them to the observers array.
+  - removeObserver(observer): Removes an observer from the observers array.
+  - dialPhoneNumber(user): Dials a customer’s phone number and notifies observers if the customer exists in the customer array.
+  - notifyObservers(user): Notifies all observers when a customer is dialed.
+
+2. PhoneUser class: Represents a phone user.
+
+- Properties:
+  - name: the name of the user.
+  - phoneNumber: the phone number of the user.
+
+3. Observer class: Represents an observer who gets notified when a customer is dialed.
+
+- Properties:
+
+  - name: the name of the observer.
+  - action: the action taken by the observer when notified.
+
+- Methods:
+  - notify(user): Logs the notification action when a user is dialed.
 
 ---
 
