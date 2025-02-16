@@ -84,10 +84,10 @@ class Observer {
 const telephone = new Telephone();
 
 // Creating instance of phone users
-const favour = new PhoneUser("Favour", 234567890);
+const favour = new PhoneUser("Favour", 2347023232);
 const chidera = new PhoneUser("Chidera", 234567890);
-const chioma = new PhoneUser("Chioma", 234567890);
-const andrew = new PhoneUser("Andrew", 234567890);
+const chioma = new PhoneUser("Chioma", 23492992049);
+const andrew = new PhoneUser("Andrew", 23448204994);
 
 // creating instance of observers
 const fbi = new Observer("Fbi");
